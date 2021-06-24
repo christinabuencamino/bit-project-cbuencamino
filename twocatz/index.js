@@ -33,7 +33,7 @@ module.exports = async function (context, req) {
         return resultname
     }
 
-    let name1 = await getNames()
+    let name1 = await getNames() //...
     let name2 = await getNames()
 
     context.res = {
