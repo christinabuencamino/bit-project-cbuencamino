@@ -44,4 +44,4 @@ module.exports = async function (context, req) {
             names: [name1, name2]
         }
     };
-} //changes idk
+} //changes idk ........
