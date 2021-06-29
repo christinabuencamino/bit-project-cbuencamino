@@ -44,12 +44,13 @@ module.exports = async function (context, req) {
 /* note: we use async when we are calling another API */
 async function analyzeImage(img){
     //use for cloud testing/deploying
+    
     const subscriptionKey = process.env.SUBSCRIPTIONKEY; //process.env = how to access secrets, cannot be used locally
     const uriBase = process.env.ENDPOINT + '/face/v1.0/detect'; 
 
-    /* //use for local testing ***MUST delete key and base if deploying - security risk!
-    const subscriptionKey = "insert subscription key"
-    const uriBase = "insert url" */
+    //use for local testing ***MUST delete key and base if deploying - security risk!
+    /* const subscriptionKey = ""
+    const uriBase = "" */
 
 
     let params = new URLSearchParams({
