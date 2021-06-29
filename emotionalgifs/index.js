@@ -26,9 +26,15 @@ module.exports = async function (context, req) {
     //analyze the image
         
     var result = await analyzeImage(imageData);
+    let emotions = result[0].faceAttributes.emotion;
+
+    let objects = Object.values(emotions);
+
+    const main_emotion = Object.keys(emotions).find(key => emotions[key] === Math.max(...objects));
+
     context.res = {
 	    body: {
-		    result
+		    main_emotion
 	    }
     };
 
@@ -38,8 +44,14 @@ module.exports = async function (context, req) {
 
 /* note: we use async when we are calling another API */
 async function analyzeImage(img){
+    //use for cloud testing/deploying
     const subscriptionKey = process.env.SUBSCRIPTIONKEY; //process.env = how to access secrets, cannot be used locally
     const uriBase = process.env.ENDPOINT + '/face/v1.0/detect'; 
+
+    /* //use for local testing 
+    const subscriptionKey = "insert subscription key"
+    const uriBase = "insert url" */
+
 
     let params = new URLSearchParams({
         'returnFaceId': 'true',
