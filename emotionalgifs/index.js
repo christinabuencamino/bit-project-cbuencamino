@@ -33,9 +33,8 @@ module.exports = async function (context, req) {
     const main_emotion = Object.keys(emotions).find(key => emotions[key] === Math.max(...objects));
 
     context.res = {
-	    body: {
+	    body:
 		    main_emotion
-	    }
     };
 
     console.log(result) //console logging the results so we can see any errors in the console for debugging
@@ -44,13 +43,13 @@ module.exports = async function (context, req) {
 
 /* note: we use async when we are calling another API */
 async function analyzeImage(img){
-    //use for cloud testing/deploying
+    /*//use for cloud testing/deploying
     const subscriptionKey = process.env.SUBSCRIPTIONKEY; //process.env = how to access secrets, cannot be used locally
-    const uriBase = process.env.ENDPOINT + '/face/v1.0/detect'; 
+    const uriBase = process.env.ENDPOINT + '/face/v1.0/detect'; */
 
-    /* //use for local testing ***MUST delete key and base if deploying - security risk!
-    const subscriptionKey = "insert subscription key here"
-    const uriBase = "insert url here" */
+    //use for local testing ***MUST delete key and base if deploying - security risk!
+    const subscriptionKey = "2091265e244e4a8da1e5e516ea6b7c18"
+    const uriBase = "https://emotionalapiserverless.cognitiveservices.azure.com/face/v1.0/detect" 
 
 
     let params = new URLSearchParams({
