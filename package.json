@@ -6,6 +6,10 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "nit": "0.0.5",
+    "node-fetch": "^2.6.1",
+    "parse-multipart": "^1.0.4"
+  },
   "devDependencies": {}
 }
