@@ -48,9 +48,9 @@ async function analyzeImage(img){
     const subscriptionKey = process.env.SUBSCRIPTIONKEY; //process.env = how to access secrets, cannot be used locally
     const uriBase = process.env.ENDPOINT + '/face/v1.0/detect'; 
 
-    /* //use for local testing 
-    const subscriptionKey = "insert subscription key"
-    const uriBase = "insert url" */
+    /* //use for local testing ***MUST delete key and base if deploying - security risk!
+    const subscriptionKey = "insert subscription key here"
+    const uriBase = "insert url here" */
 
 
     let params = new URLSearchParams({
