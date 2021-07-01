@@ -6,6 +6,9 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "init": "^0.1.2",
+    "querystring": "^0.2.1"
+  },
   "devDependencies": {}
 }
