@@ -7,8 +7,14 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
+<<<<<<< HEAD
     "init": "^0.1.2",
     "querystring": "^0.2.1"
+=======
+    "nit": "0.0.5",
+    "node-fetch": "^2.6.1",
+    "parse-multipart": "^1.0.4"
+>>>>>>> 8a6e2c397eae931d063fc7aed3aa18ba879c077f
   },
   "devDependencies": {}
 }
