@@ -45,7 +45,7 @@ module.exports = async function (context, req) {
     let song_url = songs[generation]
 
     context.res = {
-        body: 'We guessed youre part of this generation: ' + generation + '! Happy listening! ' + song_url
+        body: "We guessed you're part of this generation: " + generation + "! Happy listening! " + song_url
      };   
 
     console.log(generation)
