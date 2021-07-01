@@ -2,21 +2,11 @@ const querystring = require('querystring');
 var fetch = require('node-fetch');
 
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}
-
-module.exports = async function (context, req) {
-    var reqbody = req.body
-    context.log(reqbody)
-
     const queryObject = querystring.parse(req.body);
 
-    let resp = await fetch(queryObject.MediaUrl0,{
+    const media_url = queryObject.MediaUrl0
+
+    let resp = await fetch(media_url,{
         /*The await expression causes async function execution to pause until a Promise is settled 
         (that is, fulfilled or rejected), and to resume execution of the async function after fulfillment. 
         When resumed, the value of the await expression is that of the fulfilled Promise*/
@@ -30,16 +20,16 @@ module.exports = async function (context, req) {
     var result = await analyzeImage(data);
     let age = result[0].faceAttributes.age
 
-    if (age >= 5 && age <= 25) {
+    if (age > 5 && age < 25) {
         generation = "GenZ"
     }
-    else if (age >= 26 && age <= 41) {
+    else if (age > 24 && age < 41) {
         generation = "GenY"
     }
-    else if (age >= 42 && age <= 57) {
+    else if (age > 40 && age < 57) {
         generation = "GenX"
     }
-    else if (age >= 58 && age <= 76) {
+    else if (age > 56 && age < 76) {
         generation = "BabyBoomers"
     } 
     else {
@@ -50,7 +40,8 @@ module.exports = async function (context, req) {
         body: generation
      };   
      
-    console.log(generation) //console logging the results so we can see any errors in the console for debugging
+    console.log(generation)
+    console.log(age) //console logging the results so we can see any errors in the console for debugging
     context.done(); 
 }
 
@@ -61,8 +52,8 @@ async function analyzeImage(img){
 
      
     //use for local testing ***MUST delete key and base if deploying - security risk!
-    //const subscriptionKey = ""
-    //const uriBase = ""
+    //const subscriptionKey = "key"
+    //const uriBase = "endpoint"
 
     let params = new URLSearchParams({
 	'returnFaceId': 'true',
