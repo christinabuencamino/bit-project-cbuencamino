@@ -6,13 +6,6 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {
-    "init": "^0.1.2",
-    "nit": "0.0.5",
-    "node-fetch": "^2.6.1",
-    "parse-multipart": "^1.0.4",
-    "querystring": "^0.2.1",
-    "twilio": "^3.65.0"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
