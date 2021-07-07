@@ -1,14 +1,15 @@
 var fetch = require("node-fetch");
+const multipart = require('parse-multipart')
 
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    let blobname = "christinasstorageaccount"
+    const blob_account = "christinasstorageaccount"
 
     var username = req.headers['username'];
     var download = ""
-    var downloadpng = "https://christinasstorageaccount.blob.core.windows.net/images/" + blobname + ".png";
-    var downloadjpg = "https://christinasstorageaccount.blob.core.windows.net/images/" + blobname + ".jpeg";
+    var downloadpng = "https://" + blob_account + ".blob.core.windows.net/christinas-container/" + username + ".png";
+    var downloadjpg = "https://" + blob_account + ".blob.core.windows.net/christinas-container/" + username + ".jpeg";
 
     let pngresp = await fetch(downloadpng, {
         method: 'GET',
@@ -42,5 +43,4 @@ module.exports = async function (context, req) {
     };
     context.log(download);
     context.done();
-
 }
