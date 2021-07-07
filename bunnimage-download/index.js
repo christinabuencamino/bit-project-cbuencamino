@@ -10,6 +10,7 @@ module.exports = async function (context, req) {
     var download = ""
     var downloadpng = "https://" + blob_account + ".blob.core.windows.net/christinas-container/" + username + ".png";
     var downloadjpg = "https://" + blob_account + ".blob.core.windows.net/christinas-container/" + username + ".jpeg";
+    var downloadjpg = "https://" + blob_account + ".blob.core.windows.net/christinas-container/" + username + ".jpg";
 
     let pngresp = await fetch(downloadpng, {
         method: 'GET',
@@ -21,10 +22,16 @@ module.exports = async function (context, req) {
     })
     let jpgdata = await jpgresp;
 
-    if (pngdata.statusText == "The specified blob does not exist." && jpgdata.statusText == "The specified blob does not exist.") {
+    let jpegresp = await fetch(downloadjpeg, {
+        method: 'GET',
+    })
+    let jpegdata = await jpegresp;
+
+    if (pngdata.statusText == "The specified blob does not exist." && jpgdata.statusText == "The specified blob does not exist." && jpegdata.statusText == "The specified blob does not exist.") {
         success = false;
         context.log("Does not exist: " + pngdata)
         context.log("Does not exist: " + jpgdata)
+        context.log("Does not exist: " + jpegdata)
     } else if (pngdata.statusText != "The specified blob does not exist.") {
         success = true;
         download = downloadpng
@@ -33,7 +40,10 @@ module.exports = async function (context, req) {
         success = true;
         download = downloadjpg
         context.log("Does exist: " + jpgdata)
-    }
+    } else if (jpegdata.statusText != "The specified blob does not exist.") {
+        success = true;
+        download = downloadjpeg
+        context.log("Does exist: " + jpegdata) }
 
     context.res = {
         body: {
