@@ -52,7 +52,8 @@ module.exports = async function (context, req) {
 
     let items = await createDocument(newMessage);
 
-    const responseMessage = "Thanks 😊! Stored your secret " + queryObject.Body + ". 😯 Someone confessed that: " + JSON.stringify(items[0].message);
+    const responseMessage = `Thanks 😊! Stored your secret "${queryObject.Body}". 😯 Someone confessed that: ${JSON.stringify(items[0].message)}`
+    
 
     context.res = {
         body: responseMessage
