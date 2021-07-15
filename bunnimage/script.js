@@ -35,10 +35,36 @@ function getImage(event) {
     } else {
         alert("No name error.")
     }
-    
-
-    
-
-
 }
 
+async function downloadImage() {
+    let username = document.getElementById("downloadusername").value
+
+    if(username != '') {
+        try {
+        let url = "https://week3function.azurewebsites.net/api/bunnimage-download?code=y2bjajt60DBTXSDcSxsU4er1ZHGgSYlkaPAlIuYR6q26HBFTOVgbkA==";
+    
+        console.log("Got file name, making GET request to download image");
+
+        fetch(url, {
+            headers: {
+                username: username
+            }
+        })
+            .then(resp => {
+                return resp.json()
+            })
+            .then(data => {
+                console.log(data)
+                console.log(data.downloadUri)
+                window.open(data.downloadUri, "_self")
+            });
+        }
+        catch(err) {
+            alert(err)
+        }
+
+    } else {
+        alert('No name error.')
+    }
+}

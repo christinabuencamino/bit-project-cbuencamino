@@ -19,11 +19,18 @@
               <form id="myform" onsubmit="getImage(event)" enctype="multipart/form-data">
               <form enctype="multipart/form-data" onsubmit="getImage(event)" id="YOUR_FORM_ID">
                   <input id="image" class="label" type="file"  accept="image/x-png,image/jpeg" name="image"></input>
+
+                  <br></br>
+
                   <input type="text" id="username" name="username" placeholder="Enter your file's name"/><br>
                   <input value="Submit" type="submit" />
+
+                  <br></br>
+
+                  <input id="downloadusername"></input>
+                  <input id="button2" value="Download" type="button" onclick='downloadImage()'> </input>
               </form>
               <br/>
               <div id="output"></div>
         </div>
     </body>  
-
