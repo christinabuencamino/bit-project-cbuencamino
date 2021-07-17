@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 function y1k3s() {
     let textInput = document.getElementById('textInput').value;
 
