@@ -21,8 +21,8 @@ async function y1k3s() {
 
     let catResp = await resp.json();
 
-    document.getElementById("image1").src = catResp.catpic1;
-    document.getElementById("image2").src = catResp.catpic2;
-    document.getElementById("image3").src = catResp.catpic3;
-    document.getElementById("image4").src = catResp.catpic4; 
+    document.getElementById("image1").src = "data:image/png;base64," + catResp.catpic1;
+    document.getElementById("image2").src = "data:image/png;base64," + catResp.catpic2;
+    document.getElementById("image3").src = "data:image/png;base64," + catResp.catpic3;
+    document.getElementById("image4").src = "data:image/png;base64," + catResp.catpic4; 
 }
