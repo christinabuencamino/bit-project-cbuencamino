@@ -4,7 +4,7 @@ module.exports = async function (context, name1, name2, name3, name4) {
     async function getCat(name) {
 
         let resp = await fetch("https://cataas.com/cat/says/" + name, {
-            method: 'GET'
+            method: 'GET',
         });
         
         let data = await resp.arrayBuffer()

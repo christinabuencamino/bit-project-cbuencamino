@@ -1,30 +1,28 @@
-function y1k3s() { 
-    let name1 = document.getElementById("name1").value 
+async function y1k3s() { 
+    console.log(name1)
+    console.log(name2)
+    console.log(name3)
+    console.log(name4)
 
-    let endpoint1 = "https://cataas.com/cat/cute/says/" + name1
-    if(name1 != '') {
-        document.getElementById("image1").src = endpoint1
-    }
+    let params = new URLSearchParams({
+        'code' : "Vgu84ge2a6OvRB7UJ46/Plm6Dazri3jTezT2r/UFMbbp6YB9MevAHA==",
+        'name1': document.getElementById("name1").value,
+        'name2': document.getElementById("name2").value,
+        'name3': document.getElementById("name3").value,
+        'name4': document.getElementById("name4").value,
+        })
+    
 
-    let name2 = document.getElementById("name2").value 
+    let resp = await fetch("https://week1function.azurewebsites.net/api/twocatz?" + params.toString(),{
+        method: 'GET',
+    })
 
-    let endpoint2 = "https://cataas.com/cat/cute/says/" + name2
-    if(name2 != '') {
-        document.getElementById("image2").src = endpoint2
-    }
+    console.log(resp);
 
-    let name3 = document.getElementById("name3").value 
+    let catResp = await resp.json();
 
-    let endpoint3 = "https://cataas.com/cat/cute/says/" + name3
-    if(name3 != '') {
-        document.getElementById("image3").src = endpoint3
-    }
-
-    let name4 = document.getElementById("name4").value 
-
-    let endpoint4 = "https://cataas.com/cat/cute/says/" + name4
-    if(name4 != '') {
-        document.getElementById("image4").src = endpoint4
-    }
+    document.getElementById("image1").src = catResp.catpic1;
+    document.getElementById("image2").src = catResp.catpic2;
+    document.getElementById("image3").src = catResp.catpic3;
+    document.getElementById("image4").src = catResp.catpic4; 
 }
-
