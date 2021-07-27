@@ -82,7 +82,7 @@
 
 #### ETA:
 > How long do you think it will take to complete this?
-- [Replace with eta]
+- [Replace with eta] //hi
 
 #### Objective:
 > Checklist of everything you need to do to complete this issue
