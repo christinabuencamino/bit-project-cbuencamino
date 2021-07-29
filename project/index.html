@@ -9,17 +9,10 @@
 </head>
 
 <body>
-    <!-- import jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-
-    <!-- include javascript file-->
-    <script src="script.js" type="text/javascript"></script>
-
     <!-- dropdown menu #1: Borough -->
     <form>
         <label>Select Borough:</label>
-        <select>
+        <select id="NYC">
             <option value="NULL"> Select... </option>
 
             <option value="Brooklyn"> Brooklyn </option>
@@ -31,12 +24,21 @@
             <option value="Bronx"> Bronx </option>
 
             <option value="Staten Island"> Staten Island </option>
+        </select> <br><br>
+
+        <label>Select Station:</label>
+        <select id="Station">
+            <option value="NULL">Select...</option>
+            <option value="Station 1">Station 1: Brooklyn</option>
+            <option value="Station 2">Station 2: Queens</option>
+            <option value="Station 3">Station 3: Manhattan</option>
+            <option value="Station 4">Station 4: Bronx</option>
+            <option value="Station 5">Station 5: Staten Island</option>
         </select>
     </form>
 
-    
-
-
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+          <script src="script.js" type="text/javascript"></script>
 </body>
 
 </html>
