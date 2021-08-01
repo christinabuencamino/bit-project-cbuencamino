@@ -44,4 +44,6 @@
     
 
 ## Extra info
-- Title of Project: 
+- Title of Project: MTAccessibility
+
+https://github.com/dyve/jquery-autocomplete/blob/master/doc/jquery.autocomplete.txt <- autocomplete feature for user input>
