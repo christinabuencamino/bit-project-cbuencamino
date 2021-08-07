@@ -51,6 +51,16 @@ $('#Station').on('change',function(){
     }
 });
 
+/* Show user input on website function (currently in list form) */
+document.getElementById("add").onclick = function() {
+    var text = document.getElementById("input").value;
+  
+    var li = document.createElement("li");
+    li.innerText = text;
+  
+    document.getElementById("list").appendChild(li);
+  }
+
 
 
 
@@ -120,12 +130,6 @@ const listOfStatenIslandStations = [
     },
 ]
 
-const siDiv = $("#Station").first()
-console.log(siDiv)
-for (var sistation of listOfStatenIslandStations) {
-    console.log(sistation)
-    
-}
 
 
 

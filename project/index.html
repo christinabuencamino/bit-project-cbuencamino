@@ -26,6 +26,8 @@
             <option value="Staten Island"> Staten Island </option>
         </select> <br><br>
 
+        <!--- Dropdown menu #2: Station (borough-specific stations will appear when borough is chosen; otherwise all are shown)-->
+
         <label>Select Station:</label>
         <select id="Station">
             <option value="Station NULL">Select Station...</option>
@@ -35,15 +37,24 @@
             <option value="Station 4">Station 4: Bronx</option>
             <option value="Station 5">Station 5: Staten Island</option>
         </select>
-
-        <div id="userInput" style="display:none;">
-            <label for="input"><br>Input your suggestion: </label>
-            <input type="text" name="input" placeholder="Input..."/>
-            </div> <br>
     </form>
 
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-          <script src="script.js" type="text/javascript"></script>
+    <!-- User input box (only appears when station is chosen) -->
+        <div id="userInput" style="display:none;">
+            <label for="input"><br>Input your suggestion: </label>
+            <input type='text' id='input' />
+            <input type='button' value='Submit' id='add' />
+
+            <ul id='list'>
+                <li> <b>List of user input: </b></li>
+            </ul>
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="script.js" type="text/javascript"></script>
 </body>
 
 </html>
